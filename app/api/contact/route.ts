@@ -28,15 +28,15 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 如果配置了 Resend，发送邮件
+    // 如果配置了 Resend，发送邮件（未验证域名时必须用 Resend 默认发件人，否则 403）
     if (resend) {
-      try {
-        await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL || 'website@ticktask.co.ke',
-          to: 'support@ticktask.co.ke',
-          reply_to: email,
-          subject: `Contact Form: ${name}`,
-          html: `
+      const fromEmail = 'onboarding@resend.dev'
+      const { data, error } = await resend.emails.send({
+        from: fromEmail,
+        to: 'support@ticktask.co.ke',
+        reply_to: email,
+        subject: `Contact Form: ${name}`,
+        html: `
             <h2>New Contact Form Submission</h2>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
@@ -47,10 +47,13 @@ export async function POST(request: NextRequest) {
               This email was sent from the TickTask website contact form.
             </p>
           `,
-        })
-      } catch (emailError) {
-        console.error('Error sending email:', emailError)
-        // 即使邮件发送失败，也记录提交（可以后续手动处理）
+      })
+      if (error) {
+        console.error('Resend error:', error)
+        return NextResponse.json(
+          { error: 'Email service error. Please try again or contact support@ticktask.co.ke directly.' },
+          { status: 502 }
+        )
       }
     } else {
       // 如果没有配置 Resend，记录到控制台（开发环境）
