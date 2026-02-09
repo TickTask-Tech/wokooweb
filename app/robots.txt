@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ticktask.co.ke/sitemap.xml
+
