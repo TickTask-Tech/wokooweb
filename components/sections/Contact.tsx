@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Contact() {
@@ -66,13 +66,19 @@ export default function Contact() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+254 700 000 000',
-      href: 'tel:+254700000000',
+      value: '011 843 3651',
+      href: 'tel:+254118433651',
+    },
+    {
+      icon: MessageCircle,
+      label: 'WhatsApp',
+      value: 'Chat with us on WhatsApp',
+      href: 'https://wa.me/254118433651',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Nairobi, Kenya',
+      value: 'China Center, Ngong Road, Nairobi',
       href: '#',
     },
   ]
@@ -120,6 +126,8 @@ export default function Contact() {
                   <a
                     key={index}
                     href={info.href}
+                    target={info.href.startsWith('http') ? '_blank' : undefined}
+                    rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
                   >
                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center group-hover:bg-primary-500 group-hover:text-white transition-colors">

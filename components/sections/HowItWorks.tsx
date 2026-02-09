@@ -8,7 +8,7 @@ const steps = [
     icon: Download,
     title: 'Download the App',
     description:
-      'Get the TickTask app from App Store or Google Play. Sign up in seconds with your email or Google account.',
+      'Get the TickTask app from App Store or Google Play. Sign up in seconds with just your phone number.',
   },
   {
     icon: Search,

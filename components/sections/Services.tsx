@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { Sparkles } from 'lucide-react'
 
 const services = [
   {
@@ -12,6 +13,7 @@ const services = [
     duration: '2-4 hours',
     price: 'From KES 500/hour',
     slug: 'standard_home_cleaning',
+    comingSoon: false,
   },
   {
     image: '/images/services/deep_cleaning.png',
@@ -21,6 +23,7 @@ const services = [
     duration: '4-8 hours',
     price: 'From KES 800/hour',
     slug: 'deep_cleaning',
+    comingSoon: false,
   },
   {
     image: '/images/services/office_cleaning.png',
@@ -30,6 +33,7 @@ const services = [
     duration: '2-6 hours',
     price: 'From KES 700/hour',
     slug: 'office_cleaning',
+    comingSoon: false,
   },
   {
     image: '/images/services/post_construction.png',
@@ -39,6 +43,7 @@ const services = [
     duration: '5-10 hours',
     price: 'From KES 15,000',
     slug: 'post_construction',
+    comingSoon: false,
   },
   {
     image: '/images/services/fumigation.png',
@@ -48,6 +53,16 @@ const services = [
     duration: '2-4 hours',
     price: 'From KES 6,000',
     slug: 'fumigation',
+    comingSoon: false,
+  },
+  {
+    image: '',
+    title: 'More home services',
+    description: 'New home services are on the way. Stay tuned.',
+    duration: '',
+    price: '',
+    slug: 'coming_soon',
+    comingSoon: true,
   },
 ]
 
@@ -75,6 +90,7 @@ export default function Services() {
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-0">
           {services.map((service, index) => {
+            const isComingSoon = 'comingSoon' in service && service.comingSoon
             return (
               <motion.div
                 key={service.slug}
@@ -82,45 +98,57 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-100 hover:border-primary-300 transition-all duration-300 hover:shadow-xl"
+                className={`group relative rounded-2xl p-6 sm:p-8 border-2 transition-all duration-300 ${
+                  isComingSoon
+                    ? 'bg-gray-50 border-dashed border-gray-200 hover:border-primary-200'
+                    : 'bg-white border-gray-100 hover:border-primary-300 hover:shadow-xl'
+                }`}
               >
-                {/* Service Image - Square Icon */}
+                {/* Service Image or Coming Soon Icon */}
                 <div className="relative w-20 h-20 mx-auto mb-6 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    width={80}
-                    height={80}
-                    className="object-contain group-hover:scale-110 transition-transform duration-300"
-                  />
+                  {isComingSoon ? (
+                    <Sparkles className="h-10 w-10 text-primary-400" />
+                  ) : (
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={80}
+                      height={80}
+                      className="object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                  )}
                 </div>
 
                 {/* Content */}
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className={`text-2xl font-bold mb-3 ${isComingSoon ? 'text-gray-600' : 'text-gray-900'}`}>
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     {service.description}
                   </p>
 
-                  {/* Details */}
-                  <div className="space-y-2">
-                    <div className="flex items-center text-sm text-gray-500">
-                      <span className="font-medium mr-2">Duration:</span>
-                      {service.duration}
+                  {/* Details - hide for coming soon */}
+                  {!isComingSoon && (
+                    <div className="space-y-2">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <span className="font-medium mr-2">Duration:</span>
+                        {service.duration}
+                      </div>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <span className="font-medium mr-2">Price:</span>
+                        <span className="text-primary-600 font-semibold">
+                          {service.price}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center text-sm text-gray-500">
-                      <span className="font-medium mr-2">Price:</span>
-                      <span className="text-primary-600 font-semibold">
-                        {service.price}
-                      </span>
-                    </div>
-                  </div>
+                  )}
                 </div>
 
-                {/* Hover Effect Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-primary-500/0 group-hover:from-primary-500/5 group-hover:to-primary-500/0 transition-all duration-300 pointer-events-none" />
+                {/* Hover Effect - only for regular cards */}
+                {!isComingSoon && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-primary-500/0 group-hover:from-primary-500/5 group-hover:to-primary-500/0 transition-all duration-300 pointer-events-none rounded-2xl" />
+                )}
               </motion.div>
             )
           })}

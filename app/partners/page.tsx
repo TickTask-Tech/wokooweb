@@ -215,10 +215,18 @@ export default function PartnersPage() {
                   support@ticktask.co.ke
                 </a>
                 <a
-                  href="tel:+254700000000"
+                  href="tel:+254118433651"
                   className="block text-primary-600 hover:text-primary-700 font-semibold text-lg"
                 >
-                  +254 700 000 000
+                  011 843 3651
+                </a>
+                <a
+                  href="https://wa.me/254118433651"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-primary-600 hover:text-primary-700 font-semibold text-lg"
+                >
+                  WhatsApp
                 </a>
               </div>
 

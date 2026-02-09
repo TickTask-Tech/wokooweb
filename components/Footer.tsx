@@ -1,23 +1,17 @@
 import Link from 'next/link'
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, Music } from 'lucide-react'
+import Image from 'next/image'
+import { Mail, Phone, MessageCircle } from 'lucide-react'
+import { socialLinks } from './SocialIcons'
+
+const LOGO_PATH = '/logo.png'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-
-  const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/ticktaskapp', label: 'Facebook' },
-    { icon: Twitter, href: 'https://x.com/TickTask_Kenya', label: 'Twitter' },
-    { icon: Instagram, href: 'https://www.instagram.com/ticktask_kenya/', label: 'Instagram' },
-    { icon: Music, href: 'https://www.tiktok.com/@tick_task', label: 'TikTok' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  ]
 
   const footerLinks = {
     company: [
       { href: '/#services', label: 'Services' },
       { href: '/#how-it-works', label: 'How It Works' },
-      { href: '/careers', label: 'Careers' },
-      { href: '/partners', label: 'Partners' },
     ],
     legal: [
       { href: '/privacy', label: 'Privacy Policy' },
@@ -33,8 +27,14 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-500 text-white font-bold text-xl">
-                T
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-gray-900">
+                <Image
+                  src={LOGO_PATH}
+                  alt="TickTask"
+                  fill
+                  className="object-cover object-center scale-110"
+                  sizes="48px"
+                />
               </div>
               <span className="text-2xl font-bold text-white">TickTask</span>
             </div>
@@ -110,10 +110,21 @@ export default function Footer() {
               <li className="flex items-center space-x-2 text-sm">
                 <Phone className="h-4 w-4 text-primary-400" />
                 <a
-                  href="tel:+254700000000"
+                  href="tel:+254118433651"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  +254 700 000 000
+                  011 843 3651
+                </a>
+              </li>
+              <li className="flex items-center space-x-2 text-sm">
+                <MessageCircle className="h-4 w-4 text-primary-400" />
+                <a
+                  href="https://wa.me/254118433651"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-400 transition-colors"
+                >
+                  WhatsApp
                 </a>
               </li>
             </ul>
@@ -123,7 +134,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            © {currentYear} TickTask. All rights reserved.
+            © {currentYear} TickTask Technologies Limited. All rights reserved.
           </p>
           <p className="text-sm text-gray-400 mt-4 md:mt-0">
             Made with ❤️ in Kenya
