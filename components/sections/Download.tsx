@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Apple, Smartphone, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
@@ -85,7 +86,7 @@ export default function Download() {
             </ul>
           </motion.div>
 
-          {/* Right Content - Phone Mockup */}
+          {/* Right Content - Real app screenshot in phone frame */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -93,47 +94,17 @@ export default function Download() {
             transition={{ duration: 0.6 }}
             className="relative hidden lg:block"
           >
-            <div className="relative mx-auto max-w-sm">
-              {/* Phone Frame */}
-              <div className="relative bg-gray-900 rounded-[3rem] p-4 shadow-2xl">
-                <div className="bg-white rounded-[2.5rem] overflow-hidden">
-                  {/* Status Bar */}
-                  <div className="bg-gradient-to-r from-primary-500 to-primary-600 p-4 text-white">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="text-sm font-semibold">TickTask</div>
-                      <div className="text-xs">9:41 AM</div>
-                    </div>
-                    <div className="text-2xl font-bold">Book a Service</div>
-                  </div>
-
-                  {/* App Content */}
-                  <div className="p-6 space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-primary-50 rounded-xl p-4 text-center">
-                        <div className="text-3xl mb-2">🏠</div>
-                        <div className="text-sm font-semibold text-gray-700">
-                          Home
-                        </div>
-                      </div>
-                      <div className="bg-primary-50 rounded-xl p-4 text-center">
-                        <div className="text-3xl mb-2">🏢</div>
-                        <div className="text-sm font-semibold text-gray-700">
-                          Office
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-gray-50 rounded-xl p-4">
-                      <div className="h-32 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
-                        TickTask
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <div className="h-3 bg-gray-200 rounded w-full" />
-                      <div className="h-3 bg-gray-200 rounded w-3/4" />
-                    </div>
-                  </div>
+            <div className="relative mx-auto max-w-[300px]">
+              <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-4 ring-white/10">
+                <div className="rounded-[2.25rem] overflow-hidden bg-white shadow-inner">
+                  <Image
+                    src="/images/app-home-screenshot.png"
+                    alt="TickTask app - Book cleaning services in Nairobi"
+                    width={390}
+                    height={844}
+                    className="w-full h-auto object-cover object-top"
+                    sizes="(max-width: 1024px) 0px, 300px"
+                  />
                 </div>
               </div>
 

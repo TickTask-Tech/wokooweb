@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { ArrowRight, Sparkles, Shield, Clock } from 'lucide-react'
 import Link from 'next/link'
 
@@ -88,32 +89,26 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - App Preview */}
+          {/* Right Content - App Preview (real app screenshot) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="relative hidden lg:block"
           >
-            <div className="relative mx-auto max-w-md">
-              {/* Phone Mockup */}
-              <div className="relative bg-gray-900 rounded-[3rem] p-4 shadow-2xl">
-                <div className="bg-white rounded-[2.5rem] overflow-hidden">
-                  <div className="bg-gradient-to-br from-primary-400 to-primary-600 p-8 text-white">
-                    <h3 className="text-2xl font-bold mb-2">Welcome to TickTask</h3>
-                    <p className="text-primary-100">
-                      Your cleaning service, simplified
-                    </p>
-                  </div>
-                  <div className="p-6 space-y-4">
-                    <div className="h-32 bg-gray-100 rounded-lg flex items-center justify-center">
-                      <Sparkles className="h-12 w-12 text-primary-500" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="h-4 bg-gray-200 rounded w-3/4" />
-                      <div className="h-4 bg-gray-200 rounded w-1/2" />
-                    </div>
-                  </div>
+            <div className="relative mx-auto max-w-[320px]">
+              {/* Phone frame + real app screenshot */}
+              <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-4 ring-gray-800/50">
+                <div className="rounded-[2.25rem] overflow-hidden bg-white shadow-inner">
+                  <Image
+                    src="/images/app-home-screenshot.png"
+                    alt="TickTask app - Home screen with services in Nairobi"
+                    width={390}
+                    height={844}
+                    className="w-full h-auto object-cover object-top"
+                    priority
+                    sizes="(max-width: 1024px) 0px, 320px"
+                  />
                 </div>
               </div>
 
