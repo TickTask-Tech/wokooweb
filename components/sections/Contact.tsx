@@ -66,7 +66,7 @@ export default function Contact() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '011 843 3651',
+      value: '+254(0) 118 433 651',
       href: 'tel:+254118433651',
     },
     {

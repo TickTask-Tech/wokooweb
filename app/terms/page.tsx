@@ -146,7 +146,7 @@ Any disputes arising from these Terms or your use of the App or website shall be
 
 Ticktask Technologies Limited
 Email: support@ticktask.co.ke
-Phone: 011 843 3651
+Phone: +254(0) 118 433 651
 Address: Nairobi, Kenya`,
   },
 ]

@@ -89,6 +89,10 @@ export const metadata: Metadata = {
     title: 'TickTask',
   },
   manifest: '/manifest.json',
+  icons: {
+    icon: '/icon-192.png',
+    apple: '/icon-192.png',
+  },
 }
 
 export default function RootLayout({

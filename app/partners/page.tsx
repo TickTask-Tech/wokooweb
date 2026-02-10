@@ -218,7 +218,7 @@ export default function PartnersPage() {
                   href="tel:+254118433651"
                   className="block text-primary-600 hover:text-primary-700 font-semibold text-lg"
                 >
-                  011 843 3651
+                  +254(0) 118 433 651
                 </a>
                 <a
                   href="https://wa.me/254118433651"

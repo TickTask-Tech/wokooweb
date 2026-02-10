@@ -113,7 +113,7 @@ export default function Footer() {
                   href="tel:+254118433651"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  011 843 3651
+                  +254(0) 118 433 651
                 </a>
               </li>
               <li className="flex items-center space-x-2 text-sm">

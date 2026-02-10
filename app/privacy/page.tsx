@@ -144,7 +144,7 @@ Your continued use of our services after changes become effective constitutes ac
 
 Ticktask Technologies Limited
 Email: support@ticktask.co.ke
-Phone: 011 843 3651
+Phone: +254(0) 118 433 651
 Address: Nairobi, Kenya
 
 We will respond to your inquiry within a reasonable timeframe.`,

@@ -116,7 +116,7 @@ export default function AboutPage() {
                 className="inline-flex items-center justify-center space-x-2 text-primary-600 hover:text-primary-700 font-medium"
               >
                 <Phone className="h-5 w-5" />
-                <span>011 843 3651</span>
+                <span>+254(0) 118 433 651</span>
               </a>
               <a
                 href="https://wa.me/254118433651"
