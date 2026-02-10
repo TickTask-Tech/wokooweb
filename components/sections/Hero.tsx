@@ -96,9 +96,8 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="relative hidden lg:block"
           >
-            <div className="relative mx-auto max-w-[320px]">
-              {/* Phone frame + real app screenshot */}
-              <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-4 ring-gray-800/50">
+            <div className="relative mx-auto max-w-[272px]">
+              <div className="relative bg-gray-900 rounded-[2.75rem] p-2.5 shadow-2xl ring-2 ring-gray-800/40">
                 <div className="rounded-[2.25rem] overflow-hidden bg-white shadow-inner">
                   <Image
                     src="/images/app-home-screenshot.png"
@@ -107,29 +106,10 @@ export default function Hero() {
                     height={844}
                     className="w-full h-auto object-cover object-top"
                     priority
-                    sizes="(max-width: 1024px) 0px, 320px"
+                    sizes="(max-width: 1024px) 0px, 272px"
                   />
                 </div>
               </div>
-
-              {/* Floating Elements */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute -top-4 -right-4 bg-primary-500 text-white p-4 rounded-2xl shadow-lg"
-              >
-                <div className="text-sm font-semibold">500+</div>
-                <div className="text-xs">Happy Customers</div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -left-4 bg-secondary-500 text-white p-4 rounded-2xl shadow-lg"
-              >
-                <div className="text-sm font-semibold">4.8★</div>
-                <div className="text-xs">Average Rating</div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
