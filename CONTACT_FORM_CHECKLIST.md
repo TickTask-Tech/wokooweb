@@ -1,6 +1,6 @@
 # 联系表单「能不能用」自检清单
 
-表单逻辑是通的：页面提交 → `POST /api/contact` → Resend 发信到 **support@ticktask.co.ke**。  
+**产品逻辑**：访客在官网填姓名、邮箱、内容 → 邮件发到 **support@ticktask.co.ke**，reply_to 为访客邮箱，你在 support 里直接回复即可。  
 下面条件都满足时，**就能用**。
 
 ---
@@ -20,9 +20,8 @@
 
 | 条件 | 说明 |
 |------|------|
-| **RESEND_FROM_EMAIL** | 设为 `website@ticktask.co.ke` 时，发件人显示为你们域名；不设则用 `onboarding@resend.dev`（Resend 测试模式）。 |
-| **Resend 里 ticktask.co.ke 已验证** | 若用 `website@ticktask.co.ke` 发信，必须在 Resend 里验证该域名，否则会 403。 |
-| **RESEND_TO_EMAIL** | 收件人，默认 `support@ticktask.co.ke`。**测试模式下 Resend 只允许发往账号邮箱**，可设 `RESEND_TO_EMAIL=你的邮箱`（如 zhou.jinxi@ticktask.co.ke）先收信；验证域名并设 RESEND_FROM_EMAIL 后可发往任意收件人。 |
+| **RESEND_FROM_EMAIL** | 必须设为 `website@ticktask.co.ke`（且 Resend 已验证域名），邮件才能发到 support@ticktask.co.ke；不验证时 Resend 不允许发往该收件人。 |
+| **Resend 里 ticktask.co.ke 已验证** | 在 Resend 添加并验证 ticktask.co.ke 后，发件人用 website@ticktask.co.ke，收件人 support@ticktask.co.ke 才能正常收到。 |
 
 ---
 

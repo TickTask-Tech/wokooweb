@@ -36,13 +36,11 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 发件人：验证域名后设 RESEND_FROM_EMAIL=website@ticktask.co.ke；否则用 onboarding@resend.dev（仅能发往 Resend 账号邮箱）
+    // 逻辑：访客填表 → 邮件发到 support@ticktask.co.ke，reply_to 为访客邮箱，你在 support 里直接回复即可
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
-    // 收件人：默认 support@ticktask.co.ke。Resend 测试模式下只能发往账号邮箱，可设 RESEND_TO_EMAIL=你的邮箱
-    const toEmail = process.env.RESEND_TO_EMAIL || 'support@ticktask.co.ke'
     const { data, error } = await resend.emails.send({
       from: fromEmail,
-      to: toEmail,
+      to: 'support@ticktask.co.ke',
       reply_to: email,
       subject: `Contact Form: ${name}`,
       html: `
@@ -60,17 +58,17 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Resend error:', error)
-      let message = (error as { message?: string })?.message || String(error)
-      if (message.includes('only send testing emails to your own email') || message.includes('verify a domain')) {
-        message = '当前为 Resend 测试模式，仅可发往 Resend 账号邮箱。请在 Vercel/本地设置 RESEND_TO_EMAIL=你的邮箱（如 zhou.jinxi@ticktask.co.ke），或验证域名并设置 RESEND_FROM_EMAIL=website@ticktask.co.ke 后即可发往 support@ticktask.co.ke。'
+      let errMsg = (error as { message?: string })?.message || String(error)
+      if (errMsg.includes('only send testing emails to your own email') || errMsg.includes('verify a domain')) {
+        errMsg = '发信到 support@ticktask.co.ke 需在 Resend 验证域名 ticktask.co.ke，并在 Vercel 设置 RESEND_FROM_EMAIL=website@ticktask.co.ke。详见项目内 RESEND_DOMAIN_VERIFY.md。'
       }
       return NextResponse.json(
-        { error: message },
+        { error: errMsg },
         { status: 502 }
       )
     }
 
-    console.log('[Contact] Email sent via Resend, id:', data?.id, 'to:', toEmail)
+    console.log('[Contact] Email sent via Resend, id:', data?.id, 'to: support@ticktask.co.ke')
 
     return NextResponse.json(
       {
