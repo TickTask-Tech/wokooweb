@@ -20,8 +20,9 @@
 
 | 条件 | 说明 |
 |------|------|
-| **RESEND_FROM_EMAIL** | 设为 `website@ticktask.co.ke` 时，发件人显示为你们域名；不设则用 `onboarding@resend.dev`。 |
+| **RESEND_FROM_EMAIL** | 设为 `website@ticktask.co.ke` 时，发件人显示为你们域名；不设则用 `onboarding@resend.dev`（Resend 测试模式）。 |
 | **Resend 里 ticktask.co.ke 已验证** | 若用 `website@ticktask.co.ke` 发信，必须在 Resend 里验证该域名，否则会 403。 |
+| **RESEND_TO_EMAIL** | 收件人，默认 `support@ticktask.co.ke`。**测试模式下 Resend 只允许发往账号邮箱**，可设 `RESEND_TO_EMAIL=你的邮箱`（如 zhou.jinxi@ticktask.co.ke）先收信；验证域名并设 RESEND_FROM_EMAIL 后可发往任意收件人。 |
 
 ---
 
