@@ -58,8 +58,9 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Resend error:', error)
+      const message = (error as { message?: string })?.message || String(error)
       return NextResponse.json(
-        { error: 'Email service error. Please try again or contact support@ticktask.co.ke directly.' },
+        { error: message },
         { status: 502 }
       )
     }
