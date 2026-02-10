@@ -28,15 +28,22 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 如果配置了 Resend，发送邮件（未验证域名时必须用 Resend 默认发件人，否则 403）
-    if (resend) {
-      const fromEmail = 'onboarding@resend.dev'
-      const { data, error } = await resend.emails.send({
-        from: fromEmail,
-        to: 'support@ticktask.co.ke',
-        reply_to: email,
-        subject: `Contact Form: ${name}`,
-        html: `
+    if (!resend) {
+      console.warn('⚠️ RESEND_API_KEY missing. Add it to .env.local and restart dev server.')
+      return NextResponse.json(
+        { error: 'Email service not configured. Add RESEND_API_KEY to .env.local (local) or Vercel env (production).' },
+        { status: 503 }
+      )
+    }
+
+    // 域名在 Resend 验证通过后，在 .env.local / Vercel 设 RESEND_FROM_EMAIL=website@ticktask.co.ke 即可用自家域名发信
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
+    const { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: 'support@ticktask.co.ke',
+      reply_to: email,
+      subject: `Contact Form: ${name}`,
+      html: `
             <h2>New Contact Form Submission</h2>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
@@ -47,26 +54,17 @@ export async function POST(request: NextRequest) {
               This email was sent from the TickTask website contact form.
             </p>
           `,
-      })
-      if (error) {
-        console.error('Resend error:', error)
-        return NextResponse.json(
-          { error: 'Email service error. Please try again or contact support@ticktask.co.ke directly.' },
-          { status: 502 }
-        )
-      }
-    } else {
-      // 如果没有配置 Resend，记录到控制台（开发环境）
-      console.log('Contact Form Submission (No email service configured):', {
-        name,
-        email,
-        message,
-        timestamp: new Date().toISOString(),
-      })
-      console.warn(
-        '⚠️ RESEND_API_KEY not configured. Emails will not be sent. Please configure Resend to enable email functionality.'
+    })
+
+    if (error) {
+      console.error('Resend error:', error)
+      return NextResponse.json(
+        { error: 'Email service error. Please try again or contact support@ticktask.co.ke directly.' },
+        { status: 502 }
       )
     }
+
+    console.log('[Contact] Email sent via Resend, id:', data?.id, 'to: support@ticktask.co.ke')
 
     return NextResponse.json(
       {
