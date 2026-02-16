@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     default: 'TickTask - Professional Cleaning Services in Kenya',
-    template: '%s | TickTask',
+    template: '%s | TickTask Kenya',
   },
   description: 'Book professional cleaning services in Kenya. Standard cleaning, deep cleaning, office cleaning, post-construction cleanup, and fumigation services. Download our app today!',
   keywords: [
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     'cleaning app Kenya',
     'professional cleaners',
   ],
-  authors: [{ name: 'TickTask' }],
-  creator: 'TickTask',
-  publisher: 'TickTask',
+  authors: [{ name: 'TickTask Kenya' }],
+  creator: 'TickTask Kenya',
+  publisher: 'TickTask Kenya',
   formatDetection: {
     email: false,
     address: false,
@@ -50,11 +50,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  applicationName: 'TickTask Kenya',
   openGraph: {
     type: 'website',
     locale: 'en_KE',
     url: 'https://ticktask.co.ke',
-    siteName: 'TickTask',
+    siteName: 'TickTask Kenya',
     title: 'TickTask - Professional Cleaning Services in Kenya',
     description: 'Book professional cleaning services in Kenya. Download our app and get your space cleaned today!',
     images: [
@@ -86,12 +87,12 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'TickTask',
+    title: 'TickTask Kenya',
   },
   manifest: '/manifest.json',
   icons: {
-    icon: '/icon-192.png',
-    apple: '/icon-192.png',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
 }
 
@@ -103,11 +104,34 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="apple-touch-icon" href="/icon-192.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icon-192.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icon-192.png" />
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'WebSite',
+                  name: 'TickTask Kenya',
+                  url: 'https://ticktask.co.ke',
+                  description: 'Professional cleaning services in Kenya',
+                  publisher: { '@id': 'https://ticktask.co.ke/#organization' },
+                },
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://ticktask.co.ke/#organization',
+                  name: 'TickTask Kenya',
+                  url: 'https://ticktask.co.ke',
+                },
+              ],
+            }),
+          }}
+        />
         <Header />
         <main>{children}</main>
         <Footer />
