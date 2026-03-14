@@ -10,45 +10,55 @@ const lastUpdated = '2026-03-14'
 
 const sections: { title: string; content: string }[] = [
   {
-    title: '1. Information We Collect',
-    content: `We collect information that you provide directly to us and information that is automatically collected when you use our apps and website. This policy applies to:
+    title: '1. Scope and Apps Covered',
+    content: `This policy applies to three TickTask apps and this website:
 
-• Client app — customers who book and manage home services through TickTask
-• TickTask Partner app — our partners, agents, and field staff who perform or manage services on our platform
-
-Personal Information:
-• Name, email address, phone number
-• Profile information and photos
-• Payment information (processed securely through third-party payment processors)
-• Address and location information
-• Service preferences and booking history (Client app)
-• Assignments, job status, and location data when relevant to performing or managing tasks (Partner app)
-
-Automatically Collected Information:
-• Device information (device type, operating system, unique device identifiers)
-• Location data (with your permission)
-• Usage data (how you interact with the app and website)
-• Log information (IP address, access times, pages viewed)
-• Cookies and similar tracking technologies`,
+• Client app (TickTask) — customers who book and manage home services
+• Tasker app (TickTask Tasker) — workers who perform services (cleaning, etc.)
+• Partner app (TickTask Partner) — referral partners and agents who promote our services`,
   },
   {
-    title: '2. How We Use Your Information',
+    title: '2. Permissions and Data by App',
+    content: `We only collect data needed for each app. Below is what each app may access and why.
+
+Client app (TickTask):
+• Location — to set or confirm your service address and show it on a map
+• Camera and photo library — to upload profile or proof photos (e.g. before/after)
+• Phone — to call workers or support from the app
+• Notifications — to send order updates and messages
+• Data: account (name, email, phone), profile photo, payment info (via secure processors), addresses, booking and order history
+
+Tasker app (TickTask Tasker):
+• Location — to receive job locations, navigate to jobs, and share status with the platform
+• Notifications — to receive assignments and order updates
+• Data: account (name, email, phone), profile, assignments and job status, location when performing or updating jobs
+
+Partner app (TickTask Partner):
+• Location — only if the app uses it (e.g. for features we add later); not used for job dispatch
+• Data: account (name, email, phone), referral and commission records, list of agents you manage
+
+All apps and website:
+• Internet — required to use the service
+• Device information (device type, OS, app version) and usage data — to run and improve the apps
+• Cookies and similar technologies (website only) — as described in the Cookies section below`,
+  },
+  {
+    title: '3. How We Use Your Information',
     content: `We use the information we collect to:
 • Provide, maintain, and improve our services
 • Process transactions and send related information
-• Assign and manage tasks, communicate about your work, and support your role as a client or partner
+• For Client app: manage bookings, show orders, and connect you with workers
+• For Tasker app: assign and manage jobs, show job locations, and update order status
+• For Partner app: track referrals and commissions, and support your role as a referral partner
 • Send you technical notices, updates, and support messages
 • Respond to your comments, questions, and requests
 • Communicate with you about services, promotions, and events
-• Monitor and analyze trends, usage, and activities
+• Monitor and analyze trends, usage, and activities (aggregated where possible)
 • Detect, prevent, and address technical issues and fraud
-• Facilitate connections between clients and service providers
-• Verify user identities and prevent fraud
-• Comply with legal obligations
-• Enforce our Terms of Service`,
+• Comply with legal obligations and enforce our Terms of Service`,
   },
   {
-    title: '3. Information Sharing and Disclosure',
+    title: '4. Information Sharing and Disclosure',
     content: `We may share your information in the following circumstances:
 
 Service Providers:
@@ -69,16 +79,16 @@ With Your Consent:
 • We may share information with your explicit consent for other purposes not described in this policy`,
   },
   {
-    title: '4. Location Information',
-    content: `We collect location information to:
-• Match you with nearby services or workers
-• Provide accurate service delivery
-• Improve our services and user experience
+    title: '5. Location Information',
+    content: `Location is used only in the apps that need it:
+• Client app — to set or confirm your service address and display it on a map
+• Tasker app — to receive job addresses, navigate to jobs, and share your position when working on an order
+• Partner app — only if we enable location-based features in the future (not for job dispatch)
 
-You can control location sharing through your device settings. Note that disabling location services may limit certain features of the app.`,
+You can turn off location in your device settings; some features may then be limited.`,
   },
   {
-    title: '5. Data Security',
+    title: '6. Data Security',
     content: `We implement appropriate technical and organizational security measures to protect your information, including:
 • Encryption of data in transit and at rest
 • Secure authentication and access controls
@@ -88,7 +98,7 @@ You can control location sharing through your device settings. Note that disabli
 However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.`,
   },
   {
-    title: '6. Data Retention',
+    title: '7. Data Retention',
     content: `We retain your information for as long as necessary to:
 • Provide our services to you
 • Comply with legal obligations
@@ -98,7 +108,7 @@ However, no method of transmission over the internet or electronic storage is 10
 When you delete your account, we will delete or anonymize your personal information, except where we are required to retain it for legal purposes.`,
   },
   {
-    title: '7. Your Rights and Choices',
+    title: '8. Your Rights and Choices',
     content: `You have the right to:
 • Access your personal information
 • Correct inaccurate or incomplete information
@@ -111,21 +121,21 @@ When you delete your account, we will delete or anonymize your personal informat
 To exercise these rights, please contact us using the information provided in the "Contact Us" section below.`,
   },
   {
-    title: '8. Children\'s Privacy',
+    title: '9. Children\'s Privacy',
     content: `Our app and services are not intended for children under the age of 18. We do not knowingly collect personal information from children under 18. If you become aware that a child has provided us with personal information, please contact us immediately. If we become aware that we have collected personal information from a child under 18, we will take steps to delete such information.`,
   },
   {
-    title: '9. International Data Transfers',
+    title: '10. International Data Transfers',
     content: `Your information may be transferred to and processed in countries other than your country of residence. These countries may have data protection laws that differ from those in your country.
 
 By using our app or website, you consent to the transfer of your information to these countries. We will take appropriate measures to ensure your information receives adequate protection.`,
   },
   {
-    title: '10. Third-Party Links and Services',
+    title: '11. Third-Party Links and Services',
     content: `Our app and website may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties. We encourage you to review the privacy policies of any third-party services you access through us.`,
   },
   {
-    title: '11. Cookies and Tracking Technologies',
+    title: '12. Cookies and Tracking Technologies',
     content: `We use cookies and similar tracking technologies to:
 • Remember your preferences and settings
 • Analyze how you use our website
@@ -135,7 +145,7 @@ By using our app or website, you consent to the transfer of your information to 
 You can control cookies through your device or browser settings. However, disabling cookies may affect the functionality of our website.`,
   },
   {
-    title: '12. Changes to This Privacy Policy',
+    title: '13. Changes to This Privacy Policy',
     content: `We may update this Privacy Policy from time to time. We will notify you of any material changes by:
 • Posting the updated Privacy Policy on this website and in the app
 • Sending notifications via email or in-app messages
@@ -144,7 +154,7 @@ You can control cookies through your device or browser settings. However, disabl
 Your continued use of our services after changes become effective constitutes acceptance of the updated Privacy Policy.`,
   },
   {
-    title: '13. Contact Us',
+    title: '14. Contact Us',
     content: `If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
 
 Ticktask Technologies Limited
@@ -176,7 +186,7 @@ export default function PrivacyPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
           <p className="text-gray-500 mb-10">Last Updated: {lastUpdated}</p>
           <p className="text-gray-600 leading-relaxed mb-10">
-            Ticktask Technologies Limited (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the TickTask client app, the TickTask Partner app (for our partners and field staff), and this website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our apps and website.
+            Ticktask Technologies Limited (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the TickTask client app (customers), the TickTask Tasker app (workers who perform services), the TickTask Partner app (referral partners who promote our services), and this website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our apps and website.
           </p>
           <div className="bg-white rounded-2xl p-8 shadow-sm">
             {sections.map((section) => (
