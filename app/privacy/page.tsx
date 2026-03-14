@@ -6,19 +6,23 @@ export const metadata: Metadata = {
   description: 'TickTask Privacy Policy. How we collect, use, and protect your information when you use our app and services.',
 }
 
-const lastUpdated = '2026-02-09'
+const lastUpdated = '2026-03-14'
 
 const sections: { title: string; content: string }[] = [
   {
     title: '1. Information We Collect',
-    content: `We collect information that you provide directly to us and information that is automatically collected when you use our app and website.
+    content: `We collect information that you provide directly to us and information that is automatically collected when you use our apps and website. This policy applies to:
+
+• Client app — customers who book and manage home services through TickTask
+• TickTask Partner app — our partners, agents, and field staff who perform or manage services on our platform
 
 Personal Information:
 • Name, email address, phone number
 • Profile information and photos
 • Payment information (processed securely through third-party payment processors)
 • Address and location information
-• Service preferences and booking history
+• Service preferences and booking history (Client app)
+• Assignments, job status, and location data when relevant to performing or managing tasks (Partner app)
 
 Automatically Collected Information:
 • Device information (device type, operating system, unique device identifiers)
@@ -32,6 +36,7 @@ Automatically Collected Information:
     content: `We use the information we collect to:
 • Provide, maintain, and improve our services
 • Process transactions and send related information
+• Assign and manage tasks, communicate about your work, and support your role as a client or partner
 • Send you technical notices, updates, and support messages
 • Respond to your comments, questions, and requests
 • Communicate with you about services, promotions, and events
@@ -171,7 +176,7 @@ export default function PrivacyPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
           <p className="text-gray-500 mb-10">Last Updated: {lastUpdated}</p>
           <p className="text-gray-600 leading-relaxed mb-10">
-            Ticktask Technologies Limited (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the TickTask app and this website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our app and website.
+            Ticktask Technologies Limited (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the TickTask client app, the TickTask Partner app (for our partners and field staff), and this website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our apps and website.
           </p>
           <div className="bg-white rounded-2xl p-8 shadow-sm">
             {sections.map((section) => (
